@@ -1,9 +1,35 @@
-# Deliverable 2 - Kubernetes cluster and PostgreSQL
+# k8s-aws-ansible-terraform
 
-1. Using IAC(infrastructure as code) create a Kubernetes cluster
-2. Using IAC(infrastructure as code) create a PostgreSQL server
-3. Using IAC(infrastructure as code) create a PostgreSQL database and user
+## Pontos a serem comentados
+Não consegui finalizar os testes, está criando a instâncias, instalando o que precisa, porém não consegui finalizar a validação da inserção dos nós no cluster
 
-## Pontos importantes a comentar
+## Pré-Requisitos
 
-Foi quase finalizado o item 1, embora o item 2 e 3 seguiriam a mesma linha de uso do IAC
+O usuário (Chave IAM) que executar, precisará de permissão para criar VPC, SecurityGroup e EC2
+
+## Ajustar variáveis conforme ambiente na AWS
+
+Pontos importante é a utilização de AMI que já tenha feito a assinatura, caso contrário ocorrerá erro
+Certifique-se que a variável key_pair_name, está igual a que for criada na AWS
+As demais informações, fica a critério de uso da AWS
+
+```sh
+vi aws-terraform/variables.tf 
+```
+
+## Como utilizar?
+
+É necessário criar um par de chaves na aws, e o arquivo deve ser utilizado no commando ssh-add
+
+```sh
+ssh-agent zsh
+ssh-add your_key_pair.pem
+ansible-playbook -i hosts main.yml
+```
+
+## Como Destruir o que foi criado
+
+```sh
+cd aws-terraform
+terraform destroy --auto-approve
+```
