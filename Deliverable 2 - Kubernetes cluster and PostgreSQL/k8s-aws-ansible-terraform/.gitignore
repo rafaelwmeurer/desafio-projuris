@@ -1,0 +1,4 @@
+terraform.tfstate
+./aws-terraform/.terraform
+./aws-terraform/terraform.tfstate
+./aws-terraform/terraform.tfstate.*

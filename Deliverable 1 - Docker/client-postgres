@@ -1,0 +1,4 @@
+
+Importante identificar o nome do network que é criado na execução do docker-compose para insrir no parametro --network e funcionar corretamenta a ferramenta
+
+docker run --name teste-pgadmin --network=[DEFINIR] -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=email@email.com" -e "PGADMIN_DEFAULT_PASSWORD=password" -d dpage/pgadmin4
