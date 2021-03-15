@@ -48,7 +48,7 @@ services:
       - /app/node_modules
       - ./api:/app
     environment:
-      - DB=postgres://postgres:postgres@localhost:5432/postgres
+      - DB=postgres://postgres:postgres@database-postgres:5432/postgres
       - PORT=3001
     depends_on: 
       - postgres
